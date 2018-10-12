@@ -10,7 +10,7 @@ endif (POLICY CMP0063)
 
 project (google-glog)
 
-enable_testing ()
+#enable_testing ()
 
 set (GLOG_MAJOR_VERSION 0)
 set (GLOG_MINOR_VERSION 3)
@@ -63,7 +63,7 @@ endif (WITH_THREADS)
 
 check_include_file (dlfcn.h HAVE_DLFCN_H)
 check_include_file (execinfo.h HAVE_EXECINFO_H)
-check_include_file (glob.h HAVE_GLOB_H)
+set (HAVE_GLOB_H true)
 check_include_file (inttypes.h HAVE_INTTYPES_H)
 check_include_file (libunwind.h HAVE_LIBUNWIND_H)
 check_include_file (memory.h HAVE_MEMORY_H)
@@ -362,6 +362,7 @@ set (GLOG_SRCS
   src/utilities.cc
   src/utilities.h
   src/vlog_is_on.cc
+  src/glob.c
 )
 
 if (HAVE_PTHREAD)

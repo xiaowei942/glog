@@ -65,7 +65,8 @@
   // Not so safe, but what can you do?
 # define safe_write(fd, s, len)  write(fd, s, len)
 #endif
-
+#undef safe_write
+# define safe_write(fd, s, len)  write(fd, s, len)
 _START_GOOGLE_NAMESPACE_
 
 // Data for RawLog__ below. We simply pick up the latest
